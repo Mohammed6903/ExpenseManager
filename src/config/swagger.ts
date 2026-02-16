@@ -13,6 +13,10 @@ const swaggerOptions: swaggerJsdoc.Options = {
         },
         servers: [
             {
+                url: "/api",
+                description: "Current Server (Relative)",
+            },
+            {
                 url: "http://localhost:3000/api",
                 description: "Development server",
             },

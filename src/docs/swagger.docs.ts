@@ -27,7 +27,7 @@
  *                 type: string
  *                 format: password
  *                 minLength: 8
- *                 example: SecurePass123
+ *                 example: SecurePass@123
  *     responses:
  *       201:
  *         description: User registered successfully
@@ -543,6 +543,7 @@
  *         schema:
  *           type: string
  *           format: date-time
+ *           example: "2026-02-16T00:00:00Z"
  *     responses:
  *       200:
  *         description: Daily summary retrieved
@@ -593,11 +594,13 @@
  *         schema:
  *           type: string
  *           format: date-time
+ *           example: "2026-02-16T00:00:00Z"
  *       - in: query
  *         name: endDate
  *         schema:
  *           type: string
  *           format: date-time
+ *           example: "2026-05-16T00:00:00Z"
  *     responses:
  *       200:
  *         description: Category distribution retrieved
@@ -612,11 +615,13 @@
  *         schema:
  *           type: string
  *           format: date-time
+ *           example: "2026-02-16T00:00:00Z"
  *       - in: query
  *         name: endDate
  *         schema:
  *           type: string
  *           format: date-time
+ *           example: "2026-05-16T00:00:00Z"
  *     responses:
  *       200:
  *         description: Behavioral insights retrieved
@@ -648,11 +653,13 @@
  *         schema:
  *           type: string
  *           format: date-time
+ *           example: "2026-02-16T00:00:00Z"
  *       - in: query
  *         name: endDate
  *         schema:
  *           type: string
  *           format: date-time
+ *           example: "2026-05-16T00:00:00Z"
  *       - in: query
  *         name: categories
  *         schema:
@@ -681,11 +688,13 @@
  *         schema:
  *           type: string
  *           format: date-time
+ *           example: "2026-02-16T00:00:00Z"
  *       - in: query
  *         name: endDate
  *         schema:
  *           type: string
  *           format: date-time
+ *           example: "2026-05-16T00:00:00Z"
  *       - in: query
  *         name: categories
  *         schema:
@@ -707,4 +716,4 @@
 
 // This file contains Swagger/OpenAPI documentation for all API endpoints
 // Documentation is processed by swagger-jsdoc and served via swagger-ui-express
-export { };
+export {};
