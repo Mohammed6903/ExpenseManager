@@ -4,18 +4,20 @@ A production-ready Node.js + Express + TypeScript backend for personal expense t
 
 ## Features
 
-### 🔐 Authentication & Security
+### Authentication & Security
+
 - JWT-based authentication with access & refresh tokens
 - Token rotation for enhanced security
 - Secure logout functionality
 - Account status management (active, suspended, deleted)
 - Password hashing with bcrypt
 
-### 💰 Expense Management
+### Expense Management
+
 - Comprehensive expense tracking with:
   - Amount, currency, category, subcategory
   - Payment method (cash, card, UPI, bank transfer)
-  - Tags for flexible organization  
+  - Tags for flexible organization
   - Recurring expense marking
   - Description and notes
   - Separate expense date vs entry date
@@ -24,7 +26,8 @@ A production-ready Node.js + Express + TypeScript backend for personal expense t
 - Ownership enforcement
 - Advanced search & filtering with pagination
 
-### 📊 Analytics & Insights
+### Analytics & Insights
+
 - **Time-based summaries:**
   - Daily, weekly, monthly totals
   - Rolling 7/30/90 day averages
@@ -46,7 +49,8 @@ A production-ready Node.js + Express + TypeScript backend for personal expense t
   - Comprehensive monthly insights
   - Spending trend indicators
 
-### 👤 User Management
+### User Management
+
 - User profile management
 - Customizable preferences:
   - Currency (default: INR)
@@ -55,7 +59,8 @@ A production-ready Node.js + Express + TypeScript backend for personal expense t
   - Month start day and type (calendar vs salary cycle)
 - Account soft deletion
 
-### 🛡️ Production-Ready
+### Production-Ready
+
 - TypeScript strict mode enabled
 - Comprehensive error handling with error codes
 - Machine-readable API responses
@@ -112,11 +117,13 @@ npm start
 ## API Documentation
 
 Interactive Swagger/OpenAPI documentation available at:
+
 ```
 http://localhost:3000/api-docs
 ```
 
 The documentation includes:
+
 - All 35+ API endpoints
 - Request/response schemas
 - Authentication requirements
@@ -125,10 +132,10 @@ The documentation includes:
 
 ## API Overview
 
-
 ### Authentication
 
 #### Register
+
 ```http
 POST /api/auth/register
 Content-Type: application/json
@@ -151,6 +158,7 @@ Response:
 ```
 
 #### Login
+
 ```http
 POST /api/auth/login
 Content-Type: application/json
@@ -162,6 +170,7 @@ Content-Type: application/json
 ```
 
 #### Refresh Token
+
 ```http
 POST /api/auth/refresh
 Content-Type: application/json
@@ -172,6 +181,7 @@ Content-Type: application/json
 ```
 
 #### Logout
+
 ```http
 POST /api/auth/logout
 Authorization: Bearer <access-token>
@@ -185,6 +195,7 @@ Content-Type: application/json
 ### Expenses
 
 #### Create Expense
+
 ```http
 POST /api/expense
 Authorization: Bearer <access-token>
@@ -204,18 +215,21 @@ Content-Type: application/json
 ```
 
 #### Get All Expenses
+
 ```http
 GET /api/expense
 Authorization: Bearer <access-token>
 ```
 
 #### Get Expense by ID
+
 ```http
 GET /api/expense/:id
 Authorization: Bearer <access-token>
 ```
 
 #### Update Expense
+
 ```http
 PUT /api/expense/:id
 Authorization: Bearer <access-token>
@@ -228,18 +242,21 @@ Content-Type: application/json
 ```
 
 #### Delete Expense (Soft Delete)
+
 ```http
 DELETE /api/expense/:id
 Authorization: Bearer <access-token>
 ```
 
 #### Search & Filter
+
 ```http
 GET /api/expense/search?startDate=2026-01-01&endDate=2026-02-28&categories=Food,Transport&minAmount=100&maxAmount=1000&page=1&limit=50
 Authorization: Bearer <access-token>
 ```
 
 #### Bulk Create Expenses
+
 ```http
 POST /api/expense/bulk/create
 Authorization: Bearer <access-token>
@@ -268,6 +285,7 @@ Response: {
 ```
 
 #### Bulk Update Expenses
+
 ```http
 PUT /api/expense/bulk/update
 Authorization: Bearer <access-token>
@@ -295,6 +313,7 @@ Response: {
 ```
 
 #### Bulk Delete Expenses
+
 ```http
 POST /api/expense/bulk/delete
 Authorization: Bearer <access-token>
@@ -314,6 +333,7 @@ Response: {
 ### Data Export
 
 #### Export as JSON
+
 ```http
 GET /api/export/json?startDate=2026-01-01&endDate=2026-02-28&categories=Food
 Authorization: Bearer <access-token>
@@ -322,6 +342,7 @@ Response: JSON file download with complete expense data
 ```
 
 #### Export as CSV
+
 ```http
 GET /api/export/csv?startDate=2026-01-01&endDate=2026-02-28
 Authorization: Bearer <access-token>
@@ -331,62 +352,71 @@ Response: CSV file download with expense data
 
 ### Analytics
 
-
 #### Daily Summary
+
 ```http
 GET /api/analytics/summary/daily?date=2026-02-08
 Authorization: Bearer <access-token>
 ```
 
 #### Weekly Summary
+
 ```http
 GET /api/analytics/summary/weekly?startDate=2026-02-01
 Authorization: Bearer <access-token>
 ```
 
 #### Monthly Summary
+
 ```http
 GET /api/analytics/summary/monthly?year=2026&month=2
 Authorization: Bearer <access-token>
 ```
 
 #### Rolling Averages
+
 ```http
 GET /api/analytics/summary/rolling/30
 Authorization: Bearer <access-token>
 ```
 
 #### Month Comparison
+
 ```http
 GET /api/analytics/summary/comparison?year=2026&month=2
 Authorization: Bearer <access-token>
 ```
 
 #### Category Distribution
+
 ```http
 GET /api/analytics/category/distribution?startDate=2026-02-01&endDate=2026-02-28
 Authorization: Bearer <access-token>
 ```
 
 #### Top Categories
+
 ```http
 GET /api/analytics/category/top?limit=5
 Authorization: Bearer <access-token>
 ```
 
 #### Category Trend
+
 ```http
 GET /api/analytics/category/trend/Food?months=6
 Authorization: Bearer <access-token>
 ```
 
 #### Behavioral Insights
+
 ```http
 GET /api/analytics/insights/behavioral?startDate=2026-02-01&endDate=2026-02-28
 Authorization: Bearer <access-token>
 ```
 
 #### Monthly Insights (Combined)
+
 ```http
 GET /api/analytics/insights/monthly?year=2026&month=2
 Authorization: Bearer <access-token>
@@ -395,12 +425,14 @@ Authorization: Bearer <access-token>
 ### User Profile & Preferences
 
 #### Get Profile
+
 ```http
 GET /api/user/profile
 Authorization: Bearer <access-token>
 ```
 
 #### Update Profile
+
 ```http
 PUT /api/user/profile
 Authorization: Bearer <access-token>
@@ -413,12 +445,14 @@ Content-Type: application/json
 ```
 
 #### Get Preferences
+
 ```http
 GET /api/user/preferences
 Authorization: Bearer <access-token>
 ```
 
 #### Update Preferences
+
 ```http
 PUT /api/user/preferences
 Authorization: Bearer <access-token>
@@ -434,6 +468,7 @@ Content-Type: application/json
 ```
 
 #### Delete Account
+
 ```http
 DELETE /api/user/account
 Authorization: Bearer <access-token>
@@ -454,6 +489,7 @@ All errors follow a consistent format:
 ```
 
 ### Error Codes
+
 - `AUTH_INVALID_CREDENTIALS` - Invalid email/password
 - `AUTH_TOKEN_EXPIRED` - Access token expired
 - `AUTH_TOKEN_INVALID` - Invalid token
@@ -468,6 +504,7 @@ All errors follow a consistent format:
 ## Data Models
 
 ### User
+
 - `email` - Unique email address
 - `userName` - Display name
 - `password` - Hashed password
@@ -477,6 +514,7 @@ All errors follow a consistent format:
 - `createdAt`, `updatedAt` - Timestamps
 
 ### Expense
+
 - `userId` - Reference to user
 - `amount` - Expense amount
 - `currencyType` - Currency code (3 chars)
@@ -493,6 +531,7 @@ All errors follow a consistent format:
 - `createdAt`, `updatedAt` - Timestamps
 
 ### Token (Refresh Tokens)
+
 - `userId` - Reference to user
 - `refreshToken` - Hashed token
 - `accessTokenFamily` - Token rotation family ID
@@ -520,6 +559,7 @@ All errors follow a consistent format:
 ## Development Principles
 
 This backend follows these principles:
+
 - ✅ **Production-ready:** Real personal use, not a demo
 - ✅ **Type-safe:** TypeScript strict mode enabled
 - ✅ **Maintainable:** Clear separation of concerns
@@ -531,6 +571,7 @@ This backend follows these principles:
 ## Future Enhancements
 
 Potential additions:
+
 - Data export (JSON/CSV)
 - Budget tracking and alerts
 - Recurring expense automation
